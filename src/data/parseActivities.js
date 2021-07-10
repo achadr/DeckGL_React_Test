@@ -7,7 +7,6 @@ const parseCsv = async () => {
     .pipe(csv())
     .on('data', (data) => results.push(data))
     .on('end', () => {
-      console.log(results);
       
     fs.writeFile('./activities.json', JSON.stringify(results), err => {
     if (err) {

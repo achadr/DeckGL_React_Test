@@ -1,5 +1,5 @@
 import React from 'react';
-import DeckGL, {GeoJsonLayer, TripsLayer,} from 'deck.gl';
+import DeckGL, {TripsLayer} from 'deck.gl';
 import {StaticMap} from 'react-map-gl';
 import {ArcLayer} from '@deck.gl/layers';
 import {HexagonLayer} from '@deck.gl/aggregation-layers';
@@ -12,7 +12,6 @@ import {BASEMAP} from '@deck.gl/carto';
   
   // DeckGL react component
   export default function Map({data, tripLayer}) {
-    console.log("data Map", data)
     const INITIAL_VIEW_STATE = {
       longitude: data ? Number(data[0].lon) : 0,
       latitude: data ? Number(data[0].lat) : 0,
@@ -48,7 +47,7 @@ import {BASEMAP} from '@deck.gl/carto';
 
         const homeActivities = hexabinActivities.filter(a => a.type ==="home")
         const leisureActivities = hexabinActivities.filter(a => a.type ==="leisure")
-        const otherActivities = hexabinActivities.filter(a => a.type !="leisure" && a.type != "home")
+        const otherActivities = hexabinActivities.filter(a => a.type !== "leisure" && a.type !== "home")
 
         const activityWeigths = [homeActivities.length, leisureActivities.length, otherActivities.length]
 
