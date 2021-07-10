@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Map from  './components/Map.js'
+import { getActivities, getTripLayer } from './data/fetchData';
+import {useState,useEffect} from 'react'
 
-function App() {
+
+
+
+ function App() {
+  const [loading, setLoading] = useState(false)
+  const [tripLayer, setTripLayer] = useState(null)
+
+  const [data, setData] = useState(null)
+
+  useEffect( () => {
+    setLoading(true)
+   const activities =  getActivities()
+   const tripLayer = getTripLayer()
+    setData(activities)
+    setTripLayer(tripLayer)
+    setLoading(false)
+  }, [data])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   loading?<div>Loading</div> : <Map data={data} tripLayer={tripLayer}/>
   );
 }
 
