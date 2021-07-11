@@ -12,11 +12,8 @@ import { useActivitiesHandlers } from '../Hooks/activitiesHook';
 // DeckGL react component
 export default function Map({ activities, tripLayer }) {
   const [currentTime, getTimestamps] = useTripLayerHandlers();
-  const [getColorValue, INITIAL_VIEW_STATE] = useActivitiesHandlers(activities);
-  const BLUE_COLOR = [37, 52, 180];
-  const GREEN_COLOR = [0, 172, 0];
-  const YELLOW_COLOR = [255, 255, 0];
-  const COLORS = [BLUE_COLOR, YELLOW_COLOR, GREEN_COLOR];
+  const [getColorValue, INITIAL_VIEW_STATE, COLORS] = useActivitiesHandlers(activities);
+
   return (
     <DeckGL
       initialViewState={INITIAL_VIEW_STATE}
