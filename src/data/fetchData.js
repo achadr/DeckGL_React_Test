@@ -1,15 +1,6 @@
-import activities from"./activities.json" 
-import tripLayer from "./triplayer.json"
+import activities from './activities.json';
+import tripLayer from './triplayer.json';
 
-export const getTripLayer =() => {
+export const getTripLayer = () => tripLayer;
 
-    return tripLayer.features.map(t => t.geometry.coordinates )
-}
-
-
-
-export const getActivities = () => {
-   console.log("fetch data activities", activities)
-   
-    return activities
-}
+export const getActivities = () => activities;
