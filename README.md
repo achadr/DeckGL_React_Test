@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Step 1 `npm install`
 
-Run the command "npm install" in ./app to install all dependencies
+Run the command "npm install" at the root of the repo to install all the dependencies
 
 ## Step 2 `Adding Data`
 
